@@ -30,15 +30,15 @@ const pieColors = [
 
 
 const colorDescriptions = {
-  white: "The walls of the room were painted a crisp white, creating a sense of cleanliness and brightness.",
+  white: "The walls of the room were painted a crisp, creating a sense of cleanliness and brightness.",
   black: "The darkness enveloped the room, with shadows lurking in every corner.",
   green: "The lush greenery outside the window brought a feeling of serenity and tranquility.",
   blue: "The sky outside was a vibrant blue, dotted with fluffy white clouds.",
-  red: "The warmth of the red curtains added a touch of coziness to the room.",
-  yellow: "The soft yellow glow of the lamp filled the room with a sense of warmth and comfort.",
+  red: "The warmth of the curtains added a touch of coziness to the room.",
+  yellow: "The soft glow of the lamp filled the room with a sense of warmth and comfort.",
   orange: "The orange hues of the sunset painted the sky with warmth and vitality.",
-  purple: "The regal purple curtains draped elegantly across the windows.",
-  pink: "The delicate pink flowers bloomed in the garden, filling the air with a sweet fragrance.",
+  purple: "The regal curtains draped elegantly across the windows.",
+  pink: "The delicate flowers bloomed in the garden, filling the air with a sweet fragrance.",
 };
 
 let myChart = new Chart(wheel, {
@@ -73,7 +73,7 @@ let myChart = new Chart(wheel, {
 const valueGenerator = (colorValue) => {
   const description = colorDescriptions[colorValue];
   if (description) {
-    finalValue.innerHTML = `<p>Description for <strong style="color: black">${colorValue}</strong>: ${description}</p>`;
+    finalValue.innerHTML = `<p>Description: ${description}</p>`;
     spinBtn.disabled = false;
   } else {
     finalValue.innerHTML = `<p>No description available for ${colorValue}.</p>`;
@@ -100,7 +100,7 @@ spinBtn.addEventListener("click", () => {
           myChart.options.rotation >= minDegree && myChart.options.rotation <= maxDegree
       ).value;
       // Update the h1 element with the current color name
-      document.querySelector('h1').textContent = resultColor;
+      // document.querySelector('h1').textContent = resultColor;
       valueGenerator(resultColor);
       clearInterval(rotationInterval);
       count = 0;
